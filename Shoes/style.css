@@ -157,3 +157,20 @@ button:hover {
 .box2 {
     border: 2px solid;
 }
+
+.product {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.product .items {
+    display: block;
+    width: 250px;
+    border: 1px solid;
+    height: 250px;
+}
+
+.product .items img {
+    position: unset;
+    width: 100%;
+}
