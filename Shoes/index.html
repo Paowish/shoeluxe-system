@@ -52,7 +52,7 @@
         let productItems = [
             {
                 brandName: "Nike",
-                imgSrc: "https://tse4.mm.bing.net/th?id=OIP.d-7UFbAaPsT2y3dYpaKm1AHaFb&pid=Api&P=0&h=180",
+                imgSrc: "img/shoes1.png",
                 description: "Lorem ipsum dolor"
             },
             {
@@ -76,18 +76,18 @@
                 description: "Lorem ipsum dolor"
             }
         ];
-        
-        productItems.forEach(element => {
-            var product = document.getElementById("product");
+
+        var product = document.getElementById("product");
+        for(let x=0; x<productItems.length; x++) {
             product.innerHTML += '<div class="items">' +
                 '<div class="product-img">' +
-                    '<img src='+element.imgSrc+'>' +
+                    '<img src='+productItems[x].imgSrc+'>' +
                 '</div>' +
-                '<h6>'+element.brandName+'</h6>' +
-                '<h6>'+element.description+'</h6>' +
+                '<h6>'+productItems[x].brandName+'</h6>' +
+                '<h6>'+productItems[x].description+'</h6>' +
             '</div>';
-        });
-
+        }
+        
         window.addEventListener("scroll", function(){
             var nav = document.querySelector("nav");
             nav.classList.toggle("sticky", window.scrollY > 0);
