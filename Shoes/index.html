@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoeLuxe System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="main-container">
+
+                <nav>
+
+                    <h2 class="logo">Shoe<span>Luxe</span></h2>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Categories</a></li>
+                            <li><a href="#">Products</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Customers</a></li>
+                        </ul>
+                    <input type="text" placeholder="Search..."><i id="search" class="fa-solid fa-magnifying-glass"></i>
+
+                    <i id="cart" class="fa-solid fa-cart-shopping"></i>
+
+                    <button type="button">Login</button>
+                    
+                </nav>
+
+                <div class="content-container">
+
+                    <h1><i class="italic-container">SHOE</i></span> <br> Collection</h1>
+                    <p>A shoe e-commerce website is a specialized online platform where customers can browse, select, and purchase various types of footwear. These sites typically offer an extensive range of shoes, including sneakers, formal shoes, sandals, boots, and athletic footwear, catering to men, women, and children.</p>
+
+                    <img src="img/shoesfront.png" width="40%">
+                </div>
+
+    </div>
+    
+    <div class="Products-container">
+        <h2 class="text-products">PRODUCTS</h2>
+
+    </div>
+
+
+    
+    
+</body>
+
+
+
+
+
+
+    <script>
+        window.addEventListener("scroll", function(){
+            var nav = document.querySelector("nav");
+            nav.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>
+</html>

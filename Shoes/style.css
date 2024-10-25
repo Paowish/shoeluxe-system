@@ -1,0 +1,159 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;align-self: auto;
+    
+}
+.main-container {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(img/Shoeluxe\ background.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+.content-container {
+    position: relative;
+    top: 50px;
+}
+body {
+    min-height: 200vh;
+
+}
+.italic-container {
+    color: rgb(1, 234, 1);
+}
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(12, 12, 12);
+    height: 60px;
+    padding-top: 15px;
+    padding-left: 20%;
+    padding-right: 10%;
+    position: fixed;
+    z-index: 100000;
+}
+nav.sticky {
+    background: rgb(0, 0, 0);
+}
+img {
+    width: 40%;
+    position: relative;
+    bottom: 180px;
+    left: 48em;
+}
+h1 {
+    position: relative;
+    top: 200px;
+    left: 50px;
+    font-size: 60px;
+    letter-spacing: 5px;
+}
+p {
+    width: 600px;
+    text-align: justify;
+    line-height: 21px;
+    position: relative;
+    top: 250px;
+    left: 4%;
+}
+.logo {
+    position: relative;
+    right: 220px;
+    color: #fff;
+    font-size: 23px;
+}
+span {
+    color: rgb(2, 236, 2);
+}
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav ul li a:hover {
+    color: rgb(148, 34, 255);
+    transition: .3s;
+}
+input {
+    position: relative;
+    bottom: 3px;
+    padding: 8px;
+    width: 10%;
+    border-radius: 5px;
+}
+i {
+    color: #fff;
+}
+button {
+    border: none;
+    background: rgb(1, 171, 1);
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s;
+    cursor: pointer;
+    position: relative;
+    top: -5px;
+    left: 100px;
+}
+#search {
+    position: relative;
+    right: 15px;
+    bottom: 3px;
+    background-color: #fff;
+    color: #000;
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+#cart {
+    position: relative;
+    bottom: 3px;
+    cursor: pointer;
+}
+#search:hover {
+    background-color: #02c702;
+}
+button:hover {
+    transform: scale(1.1);
+}
+#uppercase {
+    text-transform: uppercase;
+}
+.Products {
+    text-align: center;
+    position: relative;
+    bottom: 400px;
+}
+
+
+.text-products {
+    text-align: center;
+    font-size: 30px;
+    font-family: verdana;
+    margin-top: 80px;
+}
+
+
+.box {
+    border: 2px solid;
+}
+.box1 {
+    border: 2px solid;
+}
+.box2 {
+    border: 2px solid;
+}
