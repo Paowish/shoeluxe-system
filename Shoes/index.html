@@ -42,10 +42,8 @@
     
     <div class="Products-container">
         <h2 class="text-products">PRODUCTS</h2>
-        <div class="product">
-            <div class="items">
-                <img src="https://i5.walmartimages.com/asr/71721447-1260-4ed7-a352-ff86558411a5_1.b621673c9d6c12481c111d5d10169c97.jpeg">
-            </div>
+        <div id="product">
+            
         </div>
     </div>   
 </body>
@@ -53,9 +51,46 @@
 
 
 
-
-
     <script>
+        let productItems = [
+            {
+                brandName: "Nike",
+                imgSrc: "https://tse4.mm.bing.net/th?id=OIP.d-7UFbAaPsT2y3dYpaKm1AHaFb&pid=Api&P=0&h=180",
+                description: "Lorem ipsum dolor"
+            },
+            {
+                brandName: "Puma",
+                imgSrc: "http://clipart-library.com/image_gallery2/Shoes-Transparent.png",
+                description: "Lorem ipsum dolor"
+            },
+            {
+                brandName: "Addidas",
+                imgSrc: "https://tse1.mm.bing.net/th?id=OIP.g1mD4lHQl7wlr2-zshVb5wAAAA&pid=Api&P=0&h=180",
+                description: "Lorem ipsum dolor"
+            },
+            {
+                brandName: "Puma",
+                imgSrc: "https://tse2.mm.bing.net/th?id=OIP.EtFDAzva-MMmhnEzKKWFPQHaEm&pid=Api&P=0&h=180",
+                description: "Lorem ipsum dolor"
+            },
+            {
+                brandName: "Nike",
+                imgSrc: "https://tse2.mm.bing.net/th?id=OIP.zFlLuxjrCXnWHOCroV4GpgHaEE&pid=Api&P=0&h=180",
+                description: "Lorem ipsum dolor"
+            }
+        ];
+        
+        productItems.forEach(element => {
+            var product = document.getElementById("product");
+            product.innerHTML += '<div class="items">' +
+                '<div class="product-img">' +
+                    '<img src='+element.imgSrc+'>' +
+                '</div>' +
+                '<h6>'+element.brandName+'</h6>' +
+                '<h6>'+element.description+'</h6>' +
+            '</div>';
+        });
+
         window.addEventListener("scroll", function(){
             var nav = document.querySelector("nav");
             nav.classList.toggle("sticky", window.scrollY > 0);
