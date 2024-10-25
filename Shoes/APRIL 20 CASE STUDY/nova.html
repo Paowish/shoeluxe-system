@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Multigrain Snack Country</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        
+        img {
+            position: relative;
+            left: 6em;
+            top: 8em;
+            border: 1px solid gray;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .container {
+            display: inline-block;
+            position: relative;
+            left: 8em;
+            top: 5em;
+            overflow-x: hidden;
+        }
+        h4 {
+            padding: 5px;
+            color: white;
+            width: 14%;
+            background-color:rgb(223, 31, 31);
+            border-radius: 5px;
+        }
+        p {
+            font-size: 20px;
+            font-family: arial;
+            font-weight: 600;
+        }
+        .star-container {
+            margin-top: 20px;
+            color: rgb(245, 36, 36);
+            font-size: 17px;
+            
+        }
+        span {
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: normal;
+            text-decoration: underline;
+
+        }
+        i {
+            position: relative;
+            left: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        h3 {
+            position: relative;
+            left: 11em;
+            bottom: 23px;
+        }
+        .rating-container {
+            position: relative;
+            left: 15.5em;
+            bottom: 41px;
+            font-size: 15px;
+            font-weight: 5;
+        }
+        .rating {
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: normal;
+            text-decoration: underline;
+        }
+        .horizontal {
+            position: relative;
+            left: 18em;
+            bottom: 59px;
+        }
+        .sold-container {
+            position: relative;
+            left: 29em;
+            bottom: 78px;
+            font-weight: 5;
+            
+
+        }
+        .sold {
+            cursor: pointer;
+            font-size: 19px;
+            font-weight: normal;
+            text-decoration: underline;
+        }
+
+        .peso-container {
+            font-family: arial;
+            font-weight: bolder;
+            color: #ff0000;
+        }
+
+        .discount-container {
+            color: #ffffff;
+            background-color:rgb(223, 31, 31);
+            padding: 2px;
+            border-radius: 5px;
+
+        }
+
+        .promo-container {
+            position: relative;
+            bottom: 50px;
+        }
+        .promo {
+            position: relative;
+            top: 10px;
+            font-weight: 500;
+        }
+        .ship {
+            position: relative;
+            left: 3px;
+            top: 5px;
+            font-size: 15px;
+            font-family: arial;
+            font-weight: 5;
+            color: rgb(45, 45, 45);
+        }
+        .ships {
+            font-size: 15px;
+            font-family: arial;
+            font-weight: 5;
+            position: relative;
+            left: 7em;
+            bottom: 16px;
+        }
+        .cuyapo {
+            position: relative;
+            left: 16em;
+            bottom: 38px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .fee {
+            position: relative;
+            top: 5px;
+            left: 8em;
+            bottom: 33px;
+            font-size: 15px;
+            font-weight: 5;
+        }
+        .price {
+            position: relative;
+            left: 16em;
+            bottom: 16px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .add-container {
+            position: relative;
+            left: 10px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 25%;
+            border-color: #ff0000;
+            color: #ff0000;
+            background-color: #f1f0f0;
+            border-radius: 5px;
+            transition: .3s;
+            
+        }
+        .add-container:hover {
+            
+            transform: scale(1.050);
+        }
+        .buy-container {
+            position: relative;
+            bottom: 2px;
+            transition: .3s;
+            border-radius: 5px;
+            padding: 16px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 25px;
+            width: 25%;
+            background-color:rgb(223, 31, 31);
+            color: #ffffff;
+            border: none;
+        }
+        .buy-container:hover {
+            transform: scale(1.050);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        body {
+            background-color: rgb(233, 233, 233);
+        }
+
+        nav {
+            z-index: 100;
+            width: 100vw;
+            position: fixed;
+            background-color: rgb(66, 66, 66);
+            display: flex;
+            height: 75px;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: .8%;
+            padding-left: 5%;
+            padding-right: 2%;
+        }
+        
+        input {
+            padding: 12.5px 12px;
+            position: relative;
+            bottom: 3px;
+            right: 30%;
+            border-radius: 5px;
+            
+        }
+
+        .cart-container {
+            position: relative;
+            right: 25%;
+            bottom: 1px;
+            padding: 8px 12px;
+            cursor: pointer;
+            border: none;
+            font-weight: bolder;
+            font-size: 1rem;
+            background-color: gold;
+            color: white;
+            border-radius: 5px;
+            transition: .3s;
+            
+        }
+
+        .cart-container:hover {
+            transform: scale(1.1)
+        }
+
+        .shipping1-container {
+            position: relative;
+            right: 20%;
+            bottom: 1px;
+            padding: 8px 12px;
+            cursor: pointer;
+            border: none;
+            font-weight: bolder;
+            font-size: 1rem;
+            background-color: gold;
+            color: white;
+            border-radius: 5px;
+            transition: .3s;
+            
+        }
+        .shipping1-container:hover {
+            transform: scale(1.1);
+        }
+
+        .search-container {
+            cursor: pointer;
+            padding: 7px 10px;
+            position: relative;
+            bottom: 1.9px;
+            border-radius: 5px;
+            right: 31%;
+            height: 15%;
+        }
+
+        .search-container:hover {
+            background-color: gold;
+            color: white;
+        }
+        .logo-container {
+            color: white;
+            position: relative;
+            right: 9px;
+            bottom: 2px;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        .tonic {
+            color: gold;
+            font-size: 25px;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            
+            <h2 class="logo-container"><i class="fa-solid fa-cookie-bite"></i>    Crave - <span class="tonic">Zone</span></h2>
+                <ul>
+                
+                    <input type="search" placeholder="Search...">
+                    <button class="search-container"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <a href="cart.html"><button class="cart-container"><i class="fa-solid fa-cart-shopping"></i> Cart</button></a>
+                    
+                </ul>
+                
+        </nav>
+    </header>
+    
+    
+    <img src="va.png" width="500px">
+        <div class="container">
+                    <h4>Preffered</h4>
+                    <p>Nova Multigrain Snack Country Cheddar 38g in Metro Manila</p>
+
+                    <h5 class="star-container">
+                    <span>4.8</span><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>    
+                    <i class="fa-regular fa-star"></i><h3>|</h3>
+                    </h5>
+
+                    <h5 class="rating-container">
+                    <span class="rating">843</span> Ratings
+                    </h5><h3 class="horizontal">|</h3>
+                    <h5 class="sold-container">
+                    <span class="sold">1.7k</span> Sold
+                     </h5>
+
+
+        <div class="promo-container">
+                    <p class="peso-container"><i class="fa-solid fa-peso-sign"></i>  15 -  17</p>
+                    <p class="promo">Promo sale: <span class="discount-container">-70%</span></p></p>
+        </div>
+
+        <div class="shipping-container">
+            <p class="ship">Shipping</p>
+            <p class="ships"><i class="fa-solid fa-truck-fast"></i> Shipping To</p>
+            <p class="cuyapo">Cuyapo, Nueva Ecija</p>
+            <p class="fee">Shipping Fee</p>
+            <p class="price"><i class="fa-solid fa-peso-sign"></i> 119</p>
+        </div>
+        
+
+        <a href="novas.html"><button class="add-container"><i class="fa-solid fa-cart-plus"></i> Add To Cart</button></a>
+
+        <a href="buy-nova.html"><button class="buy-container">Buy Now</button></a>
+        </div>
+    
+        
+</body>
+</html>

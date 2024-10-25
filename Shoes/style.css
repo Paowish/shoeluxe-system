@@ -172,3 +172,6 @@ button:hover {
     width: 200px;
     height: 200px;
 }
+.item-brandname, .item-description {
+    text-align: center;
+}

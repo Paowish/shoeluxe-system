@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Josefin Sans', sans-serif;
+            
+            
+        }
+        
+        body {
+            background-color: rgb(233, 233, 233);
+            overflow-x: hidden;
+            
+        }
+
+        nav {
+            z-index: 100;
+            width: 100vw;
+            position: fixed;
+            background-color: rgb(66, 66, 66);
+            display: flex;
+            height: 75px;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: .8%;
+            padding-left: 5%;
+            padding-right: 2%;
+        }
+    
+        .logo-container {
+            color: white;
+            position: relative;
+            right: 9px;
+            bottom: 2px;
+            left: 35%;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        .tonic {
+            color: gold;
+            font-size: 25px;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+        .product-categories {
+            width: 70%;
+            position: relative;
+            top: 100px;
+            height: 70px;
+            box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        input {
+            position: relative;
+            left: 30px;
+            top: 25px;
+            
+        }
+        .product {
+            position: relative;
+            left: 50px;
+            top: 8px;
+        }
+        .unit {
+            position: relative;
+            left: 30em;
+            bottom: 10PX;
+        }
+        .total {
+            position: relative;
+            left: 42em;
+            bottom: 27px;
+        }
+        .action {
+            position: relative;
+            left: 55em;
+            bottom: 44px;
+        }
+
+        .main2-categories {
+            width: 70%;
+            position: relative;
+            top: 100px;
+            height: 70px;
+            box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .piattos {
+            position: relative;
+            bottom: 35px;
+            left: 10px;
+        }
+        .product2 {
+            position: relative;
+            left: 50px;
+            top: 8px;
+        }
+        .unit2 {
+            position: relative;
+            left: 30em;
+            bottom: 80px;
+        }
+        .total2 {
+            position: relative;
+            left: 42em;
+            bottom: 98px;
+        }
+        .action2 {
+            position: relative;
+            left: 55em;
+            bottom: 117px;
+        }
+        img {
+            border-radius: 30px;
+            position: relative;
+            bottom: 18px;
+        }
+        .Order2 {
+            position: relative;
+            left: 16em;
+            padding: 10px;
+            bottom: 56px;
+            border: none;
+            background-color: rgb(3, 167, 3);
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            
+            <h2 class="logo-container"><i class="fa-solid fa-cookie-bite"></i>    Crave - <span class="tonic">Zone</span>  |  Chippy Cart</h2>
+           
+                
+        </nav>
+    </header>
+
+    <div class="product-categories">
+        <input type="checkbox" checked>
+        <p class="product">Product</p>
+        <p class="unit">Unit Price</p>
+        <p class="total">Total Price</p>
+        <p class="action">Actions</p>
+    </div>
+
+    <div class="main2-categories">
+        <input type="checkbox" checked>
+        <p class="product2"><img src="chippy.jpg" width="50px"><span class="piattos">Chippy</span></p>
+        <a href="index.html"><button onclick="myFunction()" class="Order2"><i class="fa-solid fa-cart-shopping"></i> Order Now</button></a>
+        <p class="unit2"><i class="fa-solid fa-peso-sign"></i> 7 - 9</p>
+        <p class="total2"><i class="fa-solid fa-peso-sign"></i> 7 - 9</p>
+        <p class="action2">Delete</p>
+    </div>
+
+    <script>
+        function myFunction(){
+            alert("Thank you for ordering Chippy!")
+        }
+    </script>
+    
+</body>
+</html>
