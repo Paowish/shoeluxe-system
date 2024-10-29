@@ -67,7 +67,7 @@ p {
     color: #fff;
     font-size: 23px;
 }
-span {
+#logo-name {
     color: rgb(2, 236, 2);
 }
 nav ul li {
@@ -94,7 +94,7 @@ input {
 i {
     color: #fff;
 }
-button {
+#login-btn {
     border: none;
     background: rgb(1, 171, 1);
     padding: 12px 25px;
@@ -127,7 +127,7 @@ button {
 #search:hover {
     background-color: #02c702;
 }
-button:hover {
+#login-btn:hover {
     transform: scale(1.1);
 }
 #uppercase {
@@ -157,13 +157,20 @@ button:hover {
 #product .items {
     width: 250px;
     border: 1px solid;
-    height: 250px;
+    height: 380px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-    
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: verdana;
+    font-size: 25px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
-
 .product-img {
     display: flex;
     justify-content: center;
@@ -176,4 +183,32 @@ button:hover {
 }
 .item-brandname, .item-description {
     text-align: center;
+}
+.brandname {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+h6 {
+    text-align: center;
+}
+#cart-btn {
+    transition: 0.3s;
+    padding: 5px;
+    background: #02c702;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: verdana;
+    font-size: 12px;
+    display: flex;
+    margin-top: auto;
+}
+#cart-btn:hover {
+    transform: scale(1.05);
+}
+.description {
+    margin-top: 10px;
+    font-size: 15px;
 }

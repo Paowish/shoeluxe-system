@@ -14,7 +14,7 @@
 
     <nav>
 
-        <h2 class="logo">Shoe<span>Luxe</span></h2>
+        <h2 class="logo">Shoe<span id="logo-name">Luxe</span></h2>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Categories</a></li>
@@ -26,7 +26,7 @@
 
         <i id="cart" class="fa-solid fa-cart-shopping"></i>
 
-        <button type="button">Login</button>
+        <button id="login-btn" type="button">Login</button>
         
     </nav>
 
@@ -53,38 +53,55 @@
             {
                 brandName: "Nike",
                 imgSrc: "img/shoes1.png",
-                description: "Lorem ipsum dolor"
-            },
-            {
-                brandName: "Puma",
-                imgSrc: "http://clipart-library.com/image_gallery2/Shoes-Transparent.png",
-                description: "Lorem ipsum dolor"
-            },
-            {
-                brandName: "Addidas",
-                imgSrc: "https://tse1.mm.bing.net/th?id=OIP.g1mD4lHQl7wlr2-zshVb5wAAAA&pid=Api&P=0&h=180",
-                description: "Lorem ipsum dolor"
-            },
-            {
-                brandName: "Puma",
-                imgSrc: "https://tse2.mm.bing.net/th?id=OIP.EtFDAzva-MMmhnEzKKWFPQHaEm&pid=Api&P=0&h=180",
-                description: "Lorem ipsum dolor"
+                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks",
             },
             {
                 brandName: "Nike",
-                imgSrc: "https://tse2.mm.bing.net/th?id=OIP.zFlLuxjrCXnWHOCroV4GpgHaEE&pid=Api&P=0&h=180",
-                description: "Lorem ipsum dolor"
+                imgSrc: "img/shoes2.png",
+                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
+            },
+            {
+                brandName: "Nike",
+                imgSrc: "img/shoes3.png",
+                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
+            },
+            {
+                brandName: "Nike",
+                imgSrc: "img/shoes4.png",
+                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
+            },
+            {
+                brandName: "Nike",
+                imgSrc: "img/shoes5.png",
+                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
+            },
+            {
+                brandName: "Nike",
+                imgSrc: "img/shoes6.png",
+                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
+            },
+            {
+                brandName: "Nike",
+                imgSrc: "img/shoes7.png",
+                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
+            },
+            {
+                brandName: "Nike",
+                imgSrc: "img/shoes8.png",
+                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
             }
+            
         ];
 
         var product = document.getElementById("product");
         for(let x=0; x<productItems.length; x++) {
             product.innerHTML += '<div class="items">' +
                 '<div class="product-img">' +
-                    '<img src='+productItems[x].imgSrc+'>' +
+                '<img src='+productItems[x].imgSrc+'>' +
                 '</div>' +
-                '<h6>'+productItems[x].brandName+'</h6>' +
-                '<h6>'+productItems[x].description+'</h6>' +
+                '<h6 class="brandname">'+productItems[x].brandName+'</h6>' +
+                '<span class="description">'+productItems[x].description+'</span>' +
+                '<button id="cart-btn">Add to Cart</button>' +
             '</div>';
         }
         
