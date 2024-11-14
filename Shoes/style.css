@@ -2,7 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Josefin Sans", sans-serif;align-self: auto;
+    font-family: "Josefin Sans", sans-serif;
+    align-self: auto;
     
 }
 .main-container {
@@ -19,7 +20,6 @@
 }
 body {
     min-height: 200vh;
-
 }
 .italic-container {
     color: rgb(1, 234, 1);
@@ -29,7 +29,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgb(12, 12, 12);
+    box-shadow: 0 0 3px 4px rgba(0,0,0,0.2);
     height: 60px;
     padding-top: 15px;
     padding-left: 20%;
@@ -38,12 +38,12 @@ nav {
     z-index: 100000;
 }
 nav.sticky {
-    background: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
 }
 img {
     width: 40%;
     position: relative;
-    bottom: 180px;
+    bottom: 200px;
     left: 48em;
 }
 h1 {
@@ -64,35 +64,41 @@ p {
 .logo {
     position: relative;
     right: 220px;
-    color: #fff;
+    color: #000000;
     font-size: 23px;
 }
 #logo-name {
     color: rgb(2, 236, 2);
 }
+
 nav ul li {
     list-style: none;
     display: inline-block;
     padding: 10px 20px;
 }
 nav ul li a {
-    color: white;
+    position: relative;
+    right: 10px;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-weight: bold;
 }
-nav ul li a:hover {
+nav a:hover,
+nav a.active {
     color: rgb(148, 34, 255);
     transition: .3s;
 }
 input {
     position: relative;
+    left: 110px;
     bottom: 3px;
     padding: 8px;
-    width: 10%;
+    width: 15%;
     border-radius: 5px;
 }
-i {
-    color: #fff;
+#search {
+    position: relative;
+    left: 60px;
 }
 #login-btn {
     border: none;
@@ -108,9 +114,13 @@ i {
     top: -5px;
     left: 100px;
 }
+#login-text {
+    text-decoration: none;
+    color: #fff;
+}
 #search {
     position: relative;
-    right: 15px;
+    right: 40px;
     bottom: 3px;
     background-color: #fff;
     color: #000;
@@ -121,7 +131,9 @@ i {
 }
 #cart {
     position: relative;
+    color: #000000;
     bottom: 3px;
+    left: 50px;
     cursor: pointer;
 }
 #search:hover {
@@ -181,18 +193,19 @@ i {
     width: 200px;
     height: 200px;
 }
-.item-brandname, .item-description {
-    text-align: center;
-}
 .brandname {
     font-size: 25px;
     margin-top: 15px;
 }
-
+#shoe-content {
+    position: relative;
+    left: 5px;
+}
 h6 {
     text-align: center;
 }
 #cart-btn {
+    width: 100%;
     transition: 0.3s;
     padding: 5px;
     background: #02c702;
@@ -201,14 +214,196 @@ h6 {
     border-radius: 5px;
     cursor: pointer;
     font-family: verdana;
-    font-size: 12px;
-    display: flex;
-    margin-top: auto;
+    margin-top: 10px;
 }
 #cart-btn:hover {
+    transform: scale(1.05);
+}
+#buy-btn:hover {
     transform: scale(1.05);
 }
 .description {
     margin-top: 10px;
     font-size: 15px;
+}
+.price {
+    font-family: verdana;
+    font-size: 15px;
+    color: red;
+}
+.dropdown {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.dropdown label {
+    padding: 5px;
+
+}
+#filter {
+    padding: 5px;
+    border: none;
+    background-color: #02c702;
+    color: #fff;
+    cursor: pointer;
+}
+#scroll-up {
+    position: relative;
+    text-align: center;
+    top: 280px;
+    left: 50px;
+    background-color: rgb(148, 34, 255);
+    width: 15%;
+    padding: 5px;
+    color: #fff;
+}
+.shop-now {
+    text-align: center;
+    position: relative;
+    top: 290px;
+    font-family: verdana;
+    color: #0c0c0c;
+    width: 13%;
+    padding: 5px;
+    background-color: #02c702;
+    border-radius: 20px;
+}
+.shop {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    top: 5px;
+}
+#arrow-down {
+    position: fixed;
+    position: relative;
+    left: 10px;
+}
+
+#cart-zero {
+    font-size: 14px;
+    color: red;
+    position: relative;
+    top: -10px;
+}
+.about-container {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+    url(img/shoe_background.jpg);
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.contact-container {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url(img/shoe1_background.jpg);
+    background-position: center;
+    background-size: cover;
+}
+footer {
+    height: 30vh;
+    width: 100%;
+    background-color: rgb(59, 59, 59);
+}
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    line-height: 1.5;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 70px;
+}
+.facebook {
+    color: #00f;
+    font-size: 25px;
+}
+.youtube {
+    font-size: 25px;
+    color: #ff0000;
+}
+.instagram {
+    font-size: 25px;
+    color: rgb(186, 65, 85);
+}
+.twitter {
+    color: blue;
+    font-size: 25px;
+}
+h4 {
+    font-weight: bolder;
+    color: gold;
+}
+.fb-link {
+    color: rgb(0, 0, 255);
+}
+.links {
+    text-decoration: none;
+    color: #ffffff;
+    transition: .3s;
+}
+.links:hover {
+    color: #FFD700;
+}
+.hidden {
+    opacity: .8;
+    transition: all 1s;
+    filter: blur(5px);
+    transform: translateX(-50%);
+}
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: rgb(148, 34, 255);
+    transition: all .3s;
+
+}
+nav ul li a:hover::before {
+    width: 100%;
+}
+#header3-container {
+    margin-top: 50px;
+    line-height: 1.8;
+    text-align: justify;
+    font-family: arial;
+    position: relative;
+    top: 150px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#header-3-container {
+    line-height: 1.1;
+    text-align: justify;
+    font-family: arial;
+    position: relative;
+    top: 140px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#tech-container {
+    color: gold;
+}
+#text-about {
+    color: #fff;
+
+}
+#about-header {
+    color: gold;
+}
+#contact-header {
+    color: gold;
+}
+.time-container {
+    color: #fff;
 }

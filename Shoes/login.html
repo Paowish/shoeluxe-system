@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+            url(img/login-background.jpg);
+            height: 100vh;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+        }
+        #myForm {
+            width: 400px;
+            height: 310px;
+            margin: auto;
+            position: relative;
+            top: 150px;
+            box-shadow: 0 0 3px 3px rgba(169, 167, 167, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #myForms {
+            width: 400px;
+            margin: auto;
+            position: relative;
+            top: 95px; 
+            padding: 10px;
+
+        }
+        input {
+            font-family: verdana;
+            border-radius: 5px;
+            border: non;
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+        #login-btn {
+            padding: 10px;
+            border: none;
+            color: #fff;
+            background-color: rgb(0, 205, 0);
+            border-radius: 5px;
+            width: 60%;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #account {
+            color: blue;
+            margin-top: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        #login-inside {
+            text-decoration: none;
+            color: #fff;
+        }
+        #register-btn {
+            padding: 10px;
+            position: relative;
+            top: -10px;
+            border: none;
+            color: #fff;
+            background-color: rgb(0, 205, 0);
+            border-radius: 5px;
+            width: 30%;
+            cursor: pointer;
+        }
+        #login-text {
+            letter-spacing: 2px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="myForm">
+        <h2 id="login-text">Login</h2>
+        <input id="username" type="email" placeholder="Username" required>
+        <input id="password" type="password" placeholder="Password" required>
+        <button onclick="login()" type="button" id="login-btn" type="submit">Login</button><br>
+        <a id="account" href="">Don't have an account yet?</a><hr>
+    </form>
+
+    <form id="myForms" action="register.html">
+        <button id="register-btn">Register</button>
+    </form>
+    
+</body>
+
+    <script>
+        function login() {
+            event.preventDefault();
+            const form = document.getElementById('myForm');
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+
+            if (username && password) {
+            alert("Login Successful");
+            window.location.href = "http://127.0.0.1:5500/Shoes/index.html";
+            } else {
+                alert("Both username and password are required.");
+            }
+        }
+    </script>
+</html>

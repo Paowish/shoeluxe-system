@@ -12,102 +12,160 @@
 </head>
 <body>
 
+    <header>
     <nav>
 
         <h2 class="logo">Shoe<span id="logo-name">Luxe</span></h2>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Customers</a></li>
+                <li><a onclick="showBrands('')" href="#home" class="active">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Contact">Contact</a></li>
             </ul>
-        <input type="text" placeholder="Search..."><i id="search" class="fa-solid fa-magnifying-glass"></i>
 
-        <i id="cart" class="fa-solid fa-cart-shopping"></i>
+        <i id="cart" class="fa-solid fa-cart-shopping"><span id="cart-zero">0</span></i>
 
-        <button id="login-btn" type="button">Login</button>
+        <button id="login-btn" type="button"><a id="login-text" href="login.html">Login</a></button>
         
     </nav>
+    </header>
 
-    <div class="main-container">
-        <div class="content-container">
-            <h1><i class="italic-container">SHOE</i></span> <br> Collection</h1>
-            <p>A shoe e-commerce website is a specialized online platform where customers can browse, select, and purchase various types of footwear. These sites typically offer an extensive range of shoes, including sneakers, formal shoes, sandals, boots, and athletic footwear, catering to men, women, and children.</p>
-
-            <img src="img/shoesfront.png" width="40%">
-        </div>
+    <section class="hidden" id="home">
+        <div class="container">
+            <div class="main-container">
+                <div class="content-container">
+                    <h1><i class="italic-container"><span id="shoe-content">SHOE</span></i></span> <br> Collection</h1>
+                    <p>A shoe e-commerce website is a specialized online platform where customers can browse, select, and purchase various types of footwear. These sites typically offer an extensive range of shoes, including sneakers, formal shoes, sandals, boots, and athletic footwear, catering to men, women, and children.</p>
         
-    </div>
+                    <p class="shop-now"><a class="shop" href="#products"><marquee behavior="scroll" direction="left">Shop Now <i id="arrow-down" class="fa-solid fa-chevron-down"></i></marquee></a></p>
+        
+                    <img src="img/shoesfront.png" width="40%">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
     
-    <div class="Products-container">
+    
+        <div class="Products-container">
         <h2 class="text-products">PRODUCTS</h2>
+            <div class="dropdown">
+            <label>Select Brand:</label>
+                <select onchange="filterBrand()" id="filter">
+                    <option value="">---All Brand---</option>
+                    <option value="Nike">Nike</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="Converse">Converse</option>
+                    <option value="Puma">Puma</option>
+                    <option value="World Balance">World Balance</option>
+                </select>
+            
+          </div>
+          <section class="hidden" id="products">
         <div id="product">
             
         </div>
     </div>   
+    </section>
+
+        <section class="hidden" id="About">
+            <div class="about-container">
+                <h3 id="header3-container">
+                    <span id="about-header">Who we are</span> <br> 
+                    <span id="text-about">At</span> <span id="tech-container">ShoeLuxe</span>, <span id="text-about">we are passionate about crafting footwear that marries style, comfort, and quality. Established with a commitment to elevate every step, we bring together innovation, premium materials, and timeless design. Our team comprises seasoned artisans, designers, and footwear enthusiasts dedicated to helping you put your best foot forward, no matter the occasion.
+                    </span>
+                    <br> <br>
+                    
+                    <span id="about-header">What we offer</span> <br> 
+                    <span id="text-about">We offer a diverse range of shoes that cater to every need, from daily essentials to statement pieces. Whether you're looking for sleek formal footwear, casual sneakers, or rugged outdoor boots, our collections blend function with flair. Every pair is designed to support your journey with features like cushioned insoles, durable outsoles, and breathable fabrics. Embrace your style confidently with shoes that are made to last and made for you. 
+                    </span>
+                    . <br> <br>
+                    <br>
+                 
+                </h3>
+            </div>
+        </section>
+
+        <section class="hidden" id="Contact">
+            <div class="contact-container">
+               <h3 id="header-3-container">
+                    <span id="contact-header">Visit Our Store</span> <br>
+                    <span id="text-about">Barangay. Pagasa <br>
+                    Talavera, Nueva Ecija <br>
+                    Opening Day/Hours: Monday - Friday <br>
+                    </span>
+                    <span class="time-container">8AM - 5PM</span> <br> <br>
+
+                    <span id="contact-header">Call Us</span> <br>
+                    <span id="text-about">Phone: 092662247374 <br>
+                    Our friendly customer service team is available from 24hrs to answer your questions and provide personalized advice.
+                    </span>
+                    <br> <br>
+
+                    <span id="contact-header">Email Us</span> <br>
+                    <span id="text-about">Email: ShoeLuxe@gmail.com <br>
+                    Send us an email with your queries, and we'll get back to you within one business day.
+                    </span> <br> <br>
+
+                    <span id="contact-header">Online Inquiry</span> <br>
+                    <span id="text-about">Fill out our online contact form on our website at <a class="fb-link" href="https://www.facebook.com/profile.php?id=61566484523872" target="_blank">https://www.facebook.com/shoeluxe1</a>. We aim to respond to all inquiries within 24 hours.
+                    </span> <br> <br>
+
+                    <span id="contact-header">Stay Connected</span> <br>
+                    <span id="text-about">Follow us on Facebook, Instagram and Twitter to stay updated on our latest products, promotions.
+                    </span>
+               </h3>
+            </div>
+        </section>
+
+        <footer>
+
+            
+            <div class="footer-container">
+                <div class="about-us">
+                <h4>About Us</h4> <br>
+                Stay connected, Follow us on Facebook, Instagram, Twitter, Youtube
+                <br> to stay updated on our latest products, promotions.
+                <br>
+                
+                <a class="facebook" href="https://www.facebook.com/profile.php?id=61566484523872" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a class="instagram" href="https://www.instagram.com/_shoesh.ph/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+                <a class="twitter" href="https://twitter.com/LemonGa53543351" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a class="youtube" href="https://www.youtube.com/watch?v=I4NGCZHT_ho" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+
+                
+                </div>
+
+                <div class="support-container">
+                    <h4>Support</h4> <br>
+                    <a class="links" href="https://en.wikipedia.org/wiki/FAQ" target="_blank">FAQ</a> <br>
+                    <a class="links" href="https://deltadevteam.com/privacy-policy/?gad_source=1&gclid=Cj0KCQjwudexBhDKARIsAI-GWYWt_B1arckU9_xti_ilirHbjt2H0bdo1ODKubdw-KVOybmjIAvYhkMaAifOEALw_wcB" target="_blank">Privacy Policy</a> <br>
+                    <a class="links" href="https://en.wikipedia.org/wiki/Help" target="_blank">Help</a> <br>
+                    <a class="links" href="https://www.contactsplus.com/blog/best-networking-apps-2023/" target="_blank">Contact</a> <br>
+
+                </div>
+
+                <div class="shop-container">
+                    <h4>Shop</h4> <br>
+                    <a class="links" href="https://www.adidas.com.ph/kids-shoes" target="_blank">Children</a> <br>
+                    <a class="links" href="https://www.footlocker.ph/men/shoes" target="_blank">Shoes</a> <br>
+                    <a class="links" href="https://www.footlocker.ph/men/shoes" target="_blank">Men</a> <br>
+                    <a class="links" href="https://www.adidas.com.ph/women-shoes" target="_blank">Women</a> <br>
+                   
+                </div>
+
+                <div class="cont-container">
+                    <h4>Contact Us</h4> <br>
+                    <i class="fa-solid fa-phone"></i> 0926 - 624 - 7374 <br>
+                    <i class="fa-solid fa-location-dot"></i> Nueva Ecija <br>
+                    <i class="fa-solid fa-envelope"></i> ShoeLuxe@gmail.com <br>
+                    <i class="fa-solid fa-house"></i> Pagasa, Talavera
+                </div>
+            </div>
+
+        </footer>
 </body>
 
-    <script>
-        let productItems = [
-            {
-                brandName: "Nike",
-                imgSrc: "img/shoes1.png",
-                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks",
-            },
-            {
-                brandName: "Nike",
-                imgSrc: "img/shoes2.png",
-                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
-            },
-            {
-                brandName: "Nike",
-                imgSrc: "img/shoes3.png",
-                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
-            },
-            {
-                brandName: "Nike",
-                imgSrc: "img/shoes4.png",
-                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
-            },
-            {
-                brandName: "Nike",
-                imgSrc: "img/shoes5.png",
-                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
-            },
-            {
-                brandName: "Nike",
-                imgSrc: "img/shoes6.png",
-                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
-            },
-            {
-                brandName: "Nike",
-                imgSrc: "img/shoes7.png",
-                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
-            },
-            {
-                brandName: "Nike",
-                imgSrc: "img/shoes8.png",
-                description: "Nike AF1 STUSSY FOSSIL for Men&Women by Xian Kicks"
-            }
-            
-        ];
-
-        var product = document.getElementById("product");
-        for(let x=0; x<productItems.length; x++) {
-            product.innerHTML += '<div class="items">' +
-                '<div class="product-img">' +
-                '<img src='+productItems[x].imgSrc+'>' +
-                '</div>' +
-                '<h6 class="brandname">'+productItems[x].brandName+'</h6>' +
-                '<span class="description">'+productItems[x].description+'</span>' +
-                '<button id="cart-btn">Add to Cart</button>' +
-            '</div>';
-        }
-        
-        window.addEventListener("scroll", function(){
-            var nav = document.querySelector("nav");
-            nav.classList.toggle("sticky", window.scrollY > 0);
-        });
-    </script>
+    <script src="script.js"></script>
 </html>
