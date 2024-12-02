@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+</head>
+<body>
+
+    <form>
+        <!-- Brand Name Dropdown -->
+        <label for="brandName-sm">Brand Name:</label>
+        <select id="brandName-sm" name="brandName">
+            <option value="Nike">Nike</option>
+            <option value="Adidas">Adidas</option>
+            <option value="World Balance">World Balance</option>
+            <option value="Converse">Converse</option>
+            <option value="Puma">Puma</option>
+        </select>
+        <br><br>
+
+        <!-- Description Field -->
+        <label for="description-sm">Description:</label>
+        <textarea id="description-sm" name="description" rows="4" cols="50"></textarea>
+        <br><br>
+
+        <!-- Price Field -->
+        <label for="price-sm">Price:</label>
+        <input type="number" id="price-sm" name="price" step="0.01" required>
+        <br><br>
+
+        <label for="image-sm">Image:</label>
+        <input type="text" id="image-sm" name="image" required>
+        <br><br>
+
+        <!-- Price Label -->
+        <label for="priceLabel-sm">Price Label:</label>
+        <input type="text" id="priceLabel-sm" name="priceLabel" required>
+        <br><br>
+
+        <button type="button" onclick="addProduct()">Submit</button>
+    </form>
+
+</body>
+<script src="script.js"></script>
+</html>

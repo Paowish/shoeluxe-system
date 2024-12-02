@@ -181,6 +181,11 @@ input {
 h6 {
     text-align: center;
 }
+#cart {
+    width: 100%;
+    font-size: 20px;
+    margin-top: 50px;
+}
 .cart-btn {
     width: 100%;
     transition: 0.3s;
@@ -450,27 +455,45 @@ svg{
     font-weight: bold;
     cursor: pointer;
 }
-.items {
+  
+.items-cart {
+    display: flex; 
+    align-items: center;
+    padding: 0;
+}
+.t-head {
+    padding-bottom: 15px;
+}
+.t-data {
+    padding-bottom: 10px;
+}
+
+.brand-desc {
+    margin-bottom: 10px;
+}
+
+.item-img {
+    margin-right: 2px;
+}
+/* .items {
     display: flex;
     justify-content: space-between;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin: 10px;
-}
-.items2  {
+} */
+/* .items2  {
     position: relative;
     top: 10px;
     right: 160px;
     
-}
+} */
 .quantity {
     top: 20px;
-    position: relative;
     right: -22px;
 }
 .total {
     top: 20px;
-    position: relative;
     color: red;
 }
 .lessthan, .greaterthan {
@@ -479,21 +502,24 @@ svg{
     cursor: pointer;
 }
 .brandName {
-    position: relative;
-    right: 30px;
+    /* position: relative; */
+    /* right: 30px; */
     bottom: 5px;
     font-size: 25px;
 }
 .pricing {
-    position: relative;
     top: 20px;
     right: 160px;
     color: red;
 }
+.brand-desc {
+    text-align: left;
+    padding-left: 25px;
+}
 .description-cart {
-    position: relative;
+    /* position: relative; */
     left: 70px;
-    text-align: center;
+    /* text-align: center; */
     font-size: 18px;
     bottom: 5px;
 }

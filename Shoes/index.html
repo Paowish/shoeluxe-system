@@ -16,21 +16,20 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
           <span class="close-btn">&times;</span>
-          <h2>Cart</h2>
-          <div class="items">
-            <h3>Item</h3>
-            <h3>Price</h3>
-            <h3>Quantity</h3>
-            <h3>Total</h3>
-          </div>
-
-          <div id="items-container">
-            
-          </div>
+          <h2>YOUR CART</h2>
+          <table id="cart">
+            <thead>
+                <th class="t-head">ITEM</th>
+                <th class="t-head">PRICE</th>
+                <th class="t-head">QUANTITY</th>
+                <th class="t-head">TOTAL</th>
+            </thead>
+            <tbody id="items-container">
+               
+            </tbody>
+          </table>
           <button id="checkout" onclick="checkoutButton()" class="checkout-btn">Checkout</button>
         </div>
-
-       
       </div>
 
     <header>
@@ -38,15 +37,12 @@
 
         <h2 class="logo">Shoe<span id="logo-name">Luxe</span></h2>
             <ul>
-                <li><a onclick="showBrands('')" href="#home" class="active">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#About">About</a></li>
                 <li><a href="#Contact">Contact</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="ShoesManagement.html">Shoes Management</a></li>
             </ul>
-            
-
-
 
             <!--Icon Cart-->
             <div id="openModalBtn" class="icon-cart">
