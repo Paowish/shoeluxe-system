@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>search in javascript</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+body
+{
+background: #ddd;
+}
+.container-fluid
+{
+width: 100%;
+height: auto;
+padding: 0px 0px 80px 0px;
+}
+.container
+{
+width: 1200px;
+height: auto;
+margin: auto;
+}
+.container .search
+{
+display: flex;
+padding: 30px 0px;
+justify-content: space-between;
+}
+.container .search h1
+{
+letter-spacing: 3px;
+display: inline-block;
+border-bottom: 2px solid green;
+padding-bottom: 10px;
+}
+.container .search input
+{
+width: 60%;
+padding: 5px 16px;
+background: transparent;
+border: 1px solid #000;
+font-size: 20px;
+text-transform: capitalize;
+letter-spacing: 3px;
+outline: none;
+}
+.container .search input::placeholder
+{
+color: green;
+font-weight: 500;
+}
+.container .product-list
+{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+text-align: left;
+}
+.container .product-list .product
+{
+margin-top: 30px;
+}
+.container .product-list .product h3
+{
+padding-top: 5px;
+letter-spacing: 2px;
+font-size: 22px;
+font-weight: 400;
+}
+.container .product-list .product h4
+{
+padding: 3px 0px;
+color: #48a809;
+font-weight: 700;
+letter-spacing: 3px;
+}
+</style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="search">
+                <h1>All Products</h1>
+                <input type="text" name="" id="find" placeholder="search here...." onkeyup="search()">
+            </div>
+
+            <div class="product-list">
+                <div class="product">
+                    <img src="img/shoes1.png">
+                    <h3>Nike</h3>
+                    <h4>$100.00 - <del>$120.00</del></h4>
+                </div>
+
+                <div class="product">
+                    <img src="img/shoes2.png">
+                    <h3>Puma</h3>
+                    <h4>$100.00 - <del>$120.00</del></h4>
+                </div>
+
+                <div class="product">
+                    <img src="img/shoes3.png">
+                    <h3>Adidas</h3>
+                    <h4>$100.00 - <del>$120.00</del></h4>
+                </div>
+
+                <div class="product">
+                    <img src="img/shoes4.png">
+                    <h3>World Balance</h3>
+                    <h4>$100.00 - <del>$120.00</del></h4>
+                </div>
+
+                <div class="product">
+                    <img src="img/shoes5.png">
+                    <h3>Converse</h3>
+                    <h4>$100.00 - <del>$120.00</del></h4>
+                </div>
+
+                <div class="product">
+                    <img src="img/shoes6.png">
+                    <h3>Samba</h3>
+                    <h4>$100.00 - <del>$120.00</del></h4>
+                </div>
+
+                <div class="product">
+                    <img src="img/shoes7.png">
+                    <h3>Lacoste</h3>
+                    <h4>$100.00 - <del>$120.00</del></h4>
+                </div>
+
+                <div class="product">
+                    <img src="img/shoes8.png">
+                    <h3>Breaker</h3>
+                    <h4>$100.00 - <del>$120.00</del></h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<!-- javascript -->
+    <script type="text/javascript">
+    function search() {
+        let filter = document.getElementById('find').value.toUpperCase();
+        let item = document.querySelectorAll('.product');
+        let l = document.getElementsByTagName('h3');
+
+        for(var i = 0;i<=l.length;i++){
+            let a=item[i].getElementsByTagName('h3')[0];
+            let value=a.innerHTML || a.innerText || a.textContent;
+            if(value.toUpperCase().indexOf(filter) > -1) {
+            item[i].style.display="";
+            }
+            else{
+            item[i].style.display="none";
+            }
+        }
+    }
+</script>
+</body>
+</html>

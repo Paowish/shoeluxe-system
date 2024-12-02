@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Rating and Feedback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    .rating-container {
+      max-width: 500px;
+      margin: auto;
+      padding: 50px;
+      border: 3px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .stars {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+      direction: rtl;
+    }
+    .stars input {
+      display: none;
+    }
+    .stars label {
+      font-size: 30px;
+      color: #a19f9ded;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .stars input:checked ~ label,
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: #ffcc00;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .form-group textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      align-content: center;
+      text-align: center;
+      border-radius: 3px;
+      resize: vertical;
+    }
+    .submit-btn {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+    .cancel-btn {
+      padding: 10px 20px;
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .cancel-btn:hover {
+      background-color: #c82333;
+    }
+    .feedback {
+      margin-top: 15px;
+    }
+    .feedback-item {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+    #home-bt {
+      padding: 10px;
+      border: none;
+      color: #fff;
+      background: #28a745;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="rating-container">
+    <h2>Tell Us About Your New Shoes</h2>
+    <form id="feedbackForm">
+      
+      <div class="stars">
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1">★</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2">★</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3">★</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4">★</label>
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5">★</label>
+      </div>
+
+      
+      <div class="form-group">
+        <label for="message">Your Feedback :</label>
+        <textarea id="message" rows="8" placeholder="Write your feedback here..." required></textarea>
+      </div>
+
+      
+      <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="button" class="cancel-btn" id="cancelButton">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="feedback">
+    <h5>Feedback</h5>
+    <div id="feedbackContainer"></div>
+  </div>
+
+  <script>
+
+      function homeButton(){
+        let home = document.getElementById('home-bt');
+        if (home){
+          window.location.href="http://127.0.0.1:5500/Shoes/index.html#home";
+        }
+      }
+
+    
+    
+      document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      
+      const rating = document.querySelector('input[name="rating"]:checked');
+      const message = document.getElementById('message').value;
+
+      
+      if (!rating || !message) {
+        alert('Please select a rating and provide feedback.');
+        return;
+      }
+
+      
+      const feedbackContainer = document.getElementById('feedbackContainer');
+      const feedbackItem = document.createElement('div');
+      feedbackItem.classList.add('feedback-item');
+      feedbackItem.innerHTML = `
+        <strong>Rating :</strong> ${rating.value} ★<br>
+        <p>${message}</p><br>
+        <button id="home-bt" onclick="homeButton()">Go back to home</button>
+      `;
+
+      
+      feedbackContainer.appendChild(feedbackItem);
+      document.getElementById('feedbackForm').reset();
+    });
+
+    
+    document.getElementById('cancelButton').addEventListener('click', function() {
+      
+      document.getElementById('feedbackForm').reset();
+
+
+      alert('Form has been canceled.');
+    });
+  </script>
+</body>
+</html>
