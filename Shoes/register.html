@@ -4,27 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         body {
             margin: 0;
             padding: 0;
             text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-            url(img/login-background.jpg);
-            height: 100vh;
-            width: 100%;
-            background-position: center;
-            background-size: cover;
         }
-        form {
+        #myForm {
             width: 400px;
-            height: 220px;
+            height: 450px;
             margin: auto;
             position: relative;
             top: 150px;
             box-shadow: 0 0 3px 3px rgba(169, 167, 167, 0.8);
             padding: 10px;
+        }
+        #login-btn{
+            width: 20%;
+            margin: auto;
+            position: relative;
+            top: 70px;
         }
         input {
             display: block;
@@ -38,7 +39,7 @@
             border: none;
             position: relative;
             top: 20px;
-            width: 30%;
+            width: 60%;
             border-radius: 5px;
             background-color: rgb(0, 205, 0);
             color: #fff;
@@ -49,20 +50,67 @@
             color: #fff;
             font-family: arial;
         }
+        hr {
+            margin-top: 40px;
+        }
+        .login-btn {
+            width: 10%;
+        }
+        #home-bt {
+            padding: 10px;
+            border: none;
+            color: #fff;
+            background: #28a745;
+            cursor: pointer;
+        }
+        .home {
+            padding: 10px;
+            border: none;
+            color: #fff;
+            background-color: rgb(2, 202, 2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .3s;
+            width: 10%;
+            position: relative;
+            top: 50px;
+        }
+        .home:hover {
+            transform: scale(1.05);
+        }
+        .home-link {
+            text-decoration: none;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
 
     <form action="login.html" onsubmit="register()" id="myForm">
         <h3>Create Your Account</h3>
-        <input id="username" type="email" placeholder="Username" required>
+        <input id="firstname" type="text" placeholder="First name" required>
+        <input id="lastname" type="text" placeholder="Last name" required>
+        <input id="username" type="text" placeholder="Birthday (mm/dd//yy)" required>
+        <input id="username" type="email" placeholder="Email" required>
         <input id="password" type="password" placeholder="Password" required>
-        <button type="submit">Register</a></button>
+        <button type="submit">Register</button><hr>
     </form>
+    <form id="login-btn" action="login.html">
+        <button>Login</button>
+    </form>
+    <i class="fa-solid fa-house"></i>
     
 </body>
 
     <script>
+
+        function homeButton(){
+            let home = document.getElementById('home-bt');
+            if (home){
+            window.location.href="http://127.0.0.1:5500/Shoes/index.html#home";
+            }
+        }
+
         function register(){
             const form = document.getElementById('myForm');
             const username = document.getElementById('username').value;
@@ -75,9 +123,6 @@
             }
             else {
                 alert("Required input fields");
-            }
-            if (password.length < 8){
-                alert("The password must be at least 8 characters");
             }
         }
     </script>

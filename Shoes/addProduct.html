@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            text-align: center;
+        }
+        body {
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(img/Shoeluxe\ background.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .main-container {
+            width: 470px;
+            height: 380px;
+            box-shadow: 0 0 3px 4px rgba(0,0,0,0.1);
+            border-radius: 30px;
+            position: relative;
+            background-color: rgb(162, 5, 193);
+            left: 220px;
+            top: 135px;
+        }
+        #add-btn {
+            padding: 5px;
+            border: none;
+            background-color: rgb(2, 202, 2);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: .3s;
+        }
+        #add-btn:hover {
+            transform: scale(1.05);
+        }
+        .home-image {
+            width: 40%;
+            position: relative;
+            bottom: 50px;
+            left: 45em;
+            position: fixed;
+        }
+        #brandname, #description, #price, #image, #label {
+            color: #fff;
+        }
+        .home {
+            padding: 10px;
+            border: none;
+            color: #fff;
+            background-color: rgb(2, 202, 2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .3s;
+            width: 20%;
+            position: relative;
+            top: 50px;
+        }
+        .home:hover {
+            transform: scale(1.05);
+        }
+        .home-link {
+            text-decoration: none;
+            color: #fff;
+        }
+    
+
+    </style>
+</head>
+<body>
+
+    <button class="home"><i class="fa-solid fa-right-from-bracket"></i> <a class="home-link" href="index.html">Home</a></button>
+    
+
+    <div class="main-container">
+        <form>
+            <!-- Brand Name Dropdown -->
+            <label id="brandname" for="brandName-sm">Brand Name:</label>
+            <select id="brandName-sm" name="brandName">
+                <option value="Nike">Nike</option>
+                <option value="Adidas">Adidas</option>
+                <option value="World Balance">World Balance</option>
+                <option value="Converse">Converse</option>
+                <option value="Puma">Puma</option>
+            </select>
+            <br><br>
+    
+            <!-- Description Field -->
+            <label id="description" for="description-sm">Description:</label>
+            <textarea id="description-sm" name="description" rows="4" cols="50"></textarea>
+            <br><br>
+    
+            <!-- Price Field -->
+            <label id="price" for="price-sm">Price:</label>
+            <input type="number" id="price-sm" name="price" step="0.01" required>
+            <br><br>
+    
+            <label id="image" for="image-sm">Image:</label>
+            <input type="text" id="image-sm" name="image" required>
+            <br><br>
+    
+            <!-- Price Label -->
+            <label id="label" for="priceLabel-sm">Price Label:</label>
+            <input type="text" id="priceLabel-sm" name="priceLabel" required>
+            <br><br>
+    
+            <button id="add-btn" type="button" onclick="addProduct()">Add Product</button>
+        </form>
+    </div>
+    <img class="home-image" src="img/shoesfront.png" width="40%">
+
+    
+
+</body>
+<script src="script.js"></script>
+</html>

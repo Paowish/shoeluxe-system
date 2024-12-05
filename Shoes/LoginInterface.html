@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            align-self: auto;
+        }
+        .main-container {
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)),url(img/Shoeluxe\ background.png);
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .content-container {
+            position: relative;
+            top: 50px;
+        }
+        .home-image {
+            width: 40%;
+            position: relative;
+            bottom: 200px;
+            left: 48em;
+        }
+        .home-description {
+            width: 600px;
+            text-align: justify;
+            line-height: 21px;
+            position: relative;
+            top: 250px;
+            left: 4%;
+        }
+        #shoe-content {
+            position: relative;
+            left: 5px;
+        }
+        .italic-container {
+            color: rgb(1, 234, 1);
+        }
+        h1 {
+            position: relative;
+            top: 200px;
+            left: 50px;
+            font-size: 60px;
+            letter-spacing: 5px;
+        }
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 0 3px 4px rgba(0,0,0,0.2);
+            height: 60px;
+            padding-top: 15px;
+            padding-left: 20%;
+            padding-right: 10%;
+            position: fixed;
+            z-index: 100000;
+        }
+        .logo {
+            position: relative;
+            right: 240px;
+            color: #000000;
+            font-size: 23px;
+        }
+        #login-btn {
+            border: none;
+            background: rgb(1, 171, 1);
+            padding: 12px 25px;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 15px;
+            transition: .4s;
+            cursor: pointer;
+            position: relative;
+            top: -5px;
+            left: 100px;
+        }
+        #logo-name {
+            color: rgb(2, 236, 2);
+        }
+        #login-text {
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+    
+            <h2 class="logo">Shoe<span id="logo-name">Luxe</span></h2>
+                
+
+            <button id="login-btn" type="button"><a id="login-text" href="login.html">Login</a></button>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="main-container">
+                <div class="content-container">
+                    <h1><i class="italic-container"><span id="shoe-content">SHOE</span></i></span> <br> Collection</h1>
+                    <p class="home-description">A shoe e-commerce website is a specialized online platform where customers can browse, select, and purchase various types of footwear. These sites typically offer an extensive range of shoes, including sneakers..</p>
+        
+                    <img class="home-image" src="img/shoesfront.png" width="40%">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -119,7 +119,7 @@
       
       <div style="display: flex; justify-content: space-between; margin-top: 10px;">
         <button type="submit" class="submit-btn">Submit</button>
-        <button type="button" class="cancel-btn" id="cancelButton">Cancel</button>
+        <button onclick="cancelBtn()" type="button" class="cancel-btn" id="cancelButton">Cancel</button>
       </div>
     </form>
   </div>
@@ -130,6 +130,14 @@
   </div>
 
   <script>
+
+    function cancelBtn(){
+      let cancel = document.getElementById('cancelButton');
+
+      if (cancel){
+        window.location.href="http://127.0.0.1:5500/Shoes/dashboard.html";
+      }
+    }
 
       function homeButton(){
         let home = document.getElementById('home-bt');
