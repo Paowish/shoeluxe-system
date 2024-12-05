@@ -255,13 +255,34 @@ let productItems = [
     },
 ];
 
+let userAccounts = [
+    {
+        id: 1,
+        firstName: "Paolo Vincent",
+        lastName: "Carunia",
+        email: "admin@gmail.com",
+        password: "admin123456",
+        userType: "Admin",
+    },
+    {
+        id: 2,
+        firstName: "Michael",
+        lastName: "Juliano",
+        email: "mjuliano@gmail.com",
+        password: "user123456",
+        userType: "User",
+    }
+];
+
 let filteredBrands = [];
 
 let selectedBrand = "";
 
 let addedToCart = [];
 
-loadProducts();
+hideProduct();
+hideForms();
+loadDataToLocalStorage();
 
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
@@ -319,6 +340,35 @@ closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
 });
 
+function hideProduct() {
+    if(!localStorage.getItem("currentUser")) {
+        let productsNav = document.getElementById('products-nav');
+        let productsList = document.getElementById('products');
+        let iconCart = document.getElementById('openModalBtn');
+        productsNav.style.display = "none";
+        productsList.style.display = "none";
+        iconCart.style.visibility = "hidden";
+    }
+}
+
+function showProduct() {
+    let productsNav = document.getElementById('products-nav');
+    let productsList = document.getElementById('products');
+    let iconCart = document.getElementById('openModalBtn');
+    productsNav.style.display = "inline-block";
+    productsList.style.display = "block";
+    iconCart.style.visibility = "visible";
+}
+
+function hideForms() {
+    if(localStorage.getItem("currentUser")){
+        let loginForm = document.getElementById("loginForm");
+        let registerForm = document.getElementById("registerForm");
+        loginForm.style.display = "none";
+        registerForm.style.display = "none";
+    }
+}
+
 function addProduct() {
     let filteredBrands = JSON.parse(localStorage.getItem('products'));
     filteredBrands.push({
@@ -349,7 +399,7 @@ function clearCart() {
     document.getElementById('countLabel').innerHTML = 0;
 }
 
-function loadProducts() {
+function loadDataToLocalStorage() {
     loadCart();
 
     if(localStorage.getItem('products')) {
@@ -379,7 +429,6 @@ function displayProducts(products){
         '</div>';
     }
 }
-
 
 function filterBrand(){
     let search = document.getElementById('find').value;
@@ -454,4 +503,38 @@ function checkoutButton(){
     }
 }
 
+function login() {
+    event.preventDefault();
+    const form = document.getElementById('myForm');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    let userResult = userAccounts.filter( (user) => {
+        return user.email == username && user.password == password;
+    });
+
+    console.log(userResult)
+
+    if (userResult.length > 0) {
+        alert("Login Successfully");
+        localStorage.setItem("currentUser", username);
+        showProduct();
+        hideForms();
+    } else {
+        alert("Both username and password are required.");
+    }
+}
+
+function register(){
+    const form = document.getElementById('myForm');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username && password){
+        alert("You're now registered");
+    }
+    else {
+        alert("Required input fields");
+    }
+}
 

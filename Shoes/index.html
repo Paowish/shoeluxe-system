@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
     <div id="myModal" class="modal">
         <div class="modal-content">
           <span class="close-btn">&times;</span>
@@ -38,10 +37,10 @@
         <h2 class="logo">Shoe<span id="logo-name">Luxe</span></h2>
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#products">Products</a></li>
+                <li id="products-nav"><a href="#products">Products</a></li>
                 <li><a href="#About">About</a></li>
                 <li><a href="#Contact">Contact</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
+                <!-- <li><a href="dashboard.html">Dashboard</a></li> -->
             </ul>
 
             <!--Icon Cart-->
@@ -52,7 +51,7 @@
                 <span id="countLabel">0</span>
             </div>
 
-        <button id="login-btn" type="button"><a id="login-text" href="login.html">Login</a></button>
+            <a id="login-link" href="#login">Login</a>
         
     </nav>
     </header>
@@ -74,11 +73,11 @@
     </section>
 
     
-    
+    <section class="hidden" id="products">
         <div class="Products-container">
-        <h2 class="text-products">PRODUCTS</h2>
+            <h2 class="text-products">PRODUCTS</h2>
             <div class="dropdown">
-            <label>Select Brand:</label>
+                <label>Select Brand:</label>
                 <select onchange="filterBrand()" id="filter">
                     <option value="">---All Brand---</option>
                     <option value="Nike">Nike</option>
@@ -88,115 +87,127 @@
                     <option value="World Balance">World Balance</option>
                 </select>
                 <input type="text" name="" id="find" placeholder="Search here..." onkeyup="filterBrand()">
-            
-
-          </div>
-    <section class="hidden" id="products">
+            </div>
+        </div>
 
         <div id="product">
+        </div>
+    </section>
+
+    <section class="hidden" id="About">
+        <div class="about-container">
+            <h3 id="header3-container">
+                <span id="about-header">Who we are</span> <br> 
+                <span id="text-about">At</span> <span id="tech-container">ShoeLuxe</span>, <span id="text-about">we are passionate about crafting footwear that marries style, comfort, and quality. Established with a commitment to elevate every step, we bring together innovation, premium materials, and timeless design. Our team comprises seasoned artisans, designers, and footwear enthusiasts dedicated to helping you put your best foot forward, no matter the occasion.
+                </span>
+                <br> <br>
+                
+                <span id="about-header">What we offer</span> <br> 
+                <span id="text-about">We offer a diverse range of shoes that cater to every need, from daily essentials to statement pieces. Whether you're looking for sleek formal footwear, casual sneakers, or rugged outdoor boots, our collections blend function with flair. Every pair is designed to support your journey with features like cushioned insoles, durable outsoles, and breathable fabrics. Embrace your style confidently with shoes that are made to last and made for you. 
+                </span>
+                . <br> <br>
+                <br>
+                
+            </h3>
+        </div>
+    </section>
+
+    <section class="hidden" id="Contact">
+        <div class="contact-container">
+            <h3 id="header-3-container">
+                <span id="contact-header">Visit Our Store</span> <br>
+                <span id="text-about">Barangay. Pagasa <br>
+                Talavera, Nueva Ecija <br>
+                Opening Day/Hours: Monday - Friday <br>
+                </span>
+                <span class="time-container">8AM - 5PM</span> <br> <br>
+
+                <span id="contact-header">Call Us</span> <br>
+                <span id="text-about">Phone: 092662247374 <br>
+                Our friendly customer service team is available from 24hrs to answer your questions and provide personalized advice.
+                </span>
+                <br> <br>
+
+                <span id="contact-header">Email Us</span> <br>
+                <span id="text-about">Email: ShoeLuxe@gmail.com <br>
+                Send us an email with your queries, and we'll get back to you within one business day.
+                </span> <br> <br>
+
+                <span id="contact-header">Online Inquiry</span> <br>
+                <span id="text-about">Fill out our online contact form on our website at <a class="fb-link" href="https://www.facebook.com/profile.php?id=61566484523872" target="_blank">https://www.facebook.com/shoeluxe1</a>. We aim to respond to all inquiries within 24 hours.
+                </span> <br> <br>
+
+                <span id="contact-header">Stay Connected</span> <br>
+                <span id="text-about">Follow us on Facebook, Instagram and Twitter to stay updated on our latest products, promotions.
+                </span>
+            </h3>
+        </div>
+    </section>
+    
+    <section class="hidden" id="login">
+        <div>
+            <form id="loginForm">
+                <h2 class="form-label">Login</h2>
+                <input class="form-input" id="username" type="email" placeholder="Username" required>
+                <input class="form-input" id="password" type="password" placeholder="Password" required>
+                <button onclick="login()" type="button" id="login-btn-form" type="submit">Login</button><br>
+                <a id="account" href="">Don't have an account yet?</a><hr>
+                <a id="login-register-btn" href="#register">Register</a>
+            </form>
+        </div>
+    </section>
+
+    <section class="hidden" id="register">
+        <form action="#login" onsubmit="register()" id="registerForm">
+            <h2 class="form-label">Create Your Account</h2>
+            <input class="form-input" id="firstname" type="text" placeholder="First name" required>
+            <input class="form-input" id="lastname" type="text" placeholder="Last name" required>
+            <input class="form-input" id="username" type="text" placeholder="Birthday (mm/dd//yy)" required>
+            <input class="form-input" id="username" type="email" placeholder="Email" required>
+            <input class="form-input" id="password" type="password" placeholder="Password" required>
+            <button class="btn-register" type="submit">Register</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="about-us">
+            <h4>About Us</h4> <br>
+            © Stay connected, Follow us on Facebook, Instagram, Twitter, Youtube
+            <br> to stay updated on our latest products, promotions.
+            <br>
+            <a class="facebook" href="https://www.facebook.com/profile.php?id=61566484523872" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="instagram" href="https://www.instagram.com/_shoesh.ph/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+            <a class="twitter" href="https://twitter.com/LemonGa53543351" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a class="youtube" href="https://www.youtube.com/watch?v=I4NGCZHT_ho" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <div class="support-container">
+            <h4>Support</h4> <br>
+            <a class="links" href="https://en.wikipedia.org/wiki/FAQ" target="_blank">FAQ</a> <br>
+            <a class="links" href="https://deltadevteam.com/privacy-policy/?gad_source=1&gclid=Cj0KCQjwudexBhDKARIsAI-GWYWt_B1arckU9_xti_ilirHbjt2H0bdo1ODKubdw-KVOybmjIAvYhkMaAifOEALw_wcB" target="_blank">Privacy Policy</a> <br>
+            <a class="links" href="https://en.wikipedia.org/wiki/Help" target="_blank">Help</a> <br>
+            <a class="links" href="https://www.contactsplus.com/blog/best-networking-apps-2023/" target="_blank">Contact</a> <br>
+
+        </div>
+
+        <div class="shop-container">
+            <h4>Shop</h4> <br>
+            <a class="links" href="https://www.adidas.com.ph/kids-shoes" target="_blank">Children</a> <br>
+            <a class="links" href="https://www.footlocker.ph/men/shoes" target="_blank">Shoes</a> <br>
+            <a class="links" href="https://www.footlocker.ph/men/shoes" target="_blank">Men</a> <br>
+            <a class="links" href="https://www.adidas.com.ph/women-shoes" target="_blank">Women</a> <br>
             
         </div>
 
-
-
-    </section>
-
-        <section class="hidden" id="About">
-            <div class="about-container">
-                <h3 id="header3-container">
-                    <span id="about-header">Who we are</span> <br> 
-                    <span id="text-about">At</span> <span id="tech-container">ShoeLuxe</span>, <span id="text-about">we are passionate about crafting footwear that marries style, comfort, and quality. Established with a commitment to elevate every step, we bring together innovation, premium materials, and timeless design. Our team comprises seasoned artisans, designers, and footwear enthusiasts dedicated to helping you put your best foot forward, no matter the occasion.
-                    </span>
-                    <br> <br>
-                    
-                    <span id="about-header">What we offer</span> <br> 
-                    <span id="text-about">We offer a diverse range of shoes that cater to every need, from daily essentials to statement pieces. Whether you're looking for sleek formal footwear, casual sneakers, or rugged outdoor boots, our collections blend function with flair. Every pair is designed to support your journey with features like cushioned insoles, durable outsoles, and breathable fabrics. Embrace your style confidently with shoes that are made to last and made for you. 
-                    </span>
-                    . <br> <br>
-                    <br>
-                 
-                </h3>
-            </div>
-        </section>
-
-        <section class="hidden" id="Contact">
-            <div class="contact-container">
-               <h3 id="header-3-container">
-                    <span id="contact-header">Visit Our Store</span> <br>
-                    <span id="text-about">Barangay. Pagasa <br>
-                    Talavera, Nueva Ecija <br>
-                    Opening Day/Hours: Monday - Friday <br>
-                    </span>
-                    <span class="time-container">8AM - 5PM</span> <br> <br>
-
-                    <span id="contact-header">Call Us</span> <br>
-                    <span id="text-about">Phone: 092662247374 <br>
-                    Our friendly customer service team is available from 24hrs to answer your questions and provide personalized advice.
-                    </span>
-                    <br> <br>
-
-                    <span id="contact-header">Email Us</span> <br>
-                    <span id="text-about">Email: ShoeLuxe@gmail.com <br>
-                    Send us an email with your queries, and we'll get back to you within one business day.
-                    </span> <br> <br>
-
-                    <span id="contact-header">Online Inquiry</span> <br>
-                    <span id="text-about">Fill out our online contact form on our website at <a class="fb-link" href="https://www.facebook.com/profile.php?id=61566484523872" target="_blank">https://www.facebook.com/shoeluxe1</a>. We aim to respond to all inquiries within 24 hours.
-                    </span> <br> <br>
-
-                    <span id="contact-header">Stay Connected</span> <br>
-                    <span id="text-about">Follow us on Facebook, Instagram and Twitter to stay updated on our latest products, promotions.
-                    </span>
-               </h3>
-            </div>
-        </section>
-
-        <footer>
-
-            
-            <div class="footer-container">
-                <div class="about-us">
-                <h4>About Us</h4> <br>
-                © Stay connected, Follow us on Facebook, Instagram, Twitter, Youtube
-                <br> to stay updated on our latest products, promotions.
-                <br>
-                
-                <a class="facebook" href="https://www.facebook.com/profile.php?id=61566484523872" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a class="instagram" href="https://www.instagram.com/_shoesh.ph/" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
-                <a class="twitter" href="https://twitter.com/LemonGa53543351" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                <a class="youtube" href="https://www.youtube.com/watch?v=I4NGCZHT_ho" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-
-                
-                </div>
-
-                <div class="support-container">
-                    <h4>Support</h4> <br>
-                    <a class="links" href="https://en.wikipedia.org/wiki/FAQ" target="_blank">FAQ</a> <br>
-                    <a class="links" href="https://deltadevteam.com/privacy-policy/?gad_source=1&gclid=Cj0KCQjwudexBhDKARIsAI-GWYWt_B1arckU9_xti_ilirHbjt2H0bdo1ODKubdw-KVOybmjIAvYhkMaAifOEALw_wcB" target="_blank">Privacy Policy</a> <br>
-                    <a class="links" href="https://en.wikipedia.org/wiki/Help" target="_blank">Help</a> <br>
-                    <a class="links" href="https://www.contactsplus.com/blog/best-networking-apps-2023/" target="_blank">Contact</a> <br>
-
-                </div>
-
-                <div class="shop-container">
-                    <h4>Shop</h4> <br>
-                    <a class="links" href="https://www.adidas.com.ph/kids-shoes" target="_blank">Children</a> <br>
-                    <a class="links" href="https://www.footlocker.ph/men/shoes" target="_blank">Shoes</a> <br>
-                    <a class="links" href="https://www.footlocker.ph/men/shoes" target="_blank">Men</a> <br>
-                    <a class="links" href="https://www.adidas.com.ph/women-shoes" target="_blank">Women</a> <br>
-                   
-                </div>
-
-                <div class="cont-container">
-                    <h4>Contact Us</h4> <br>
-                    <i class="fa-solid fa-phone"></i> 0926 - 624 - 7374 <br>
-                    <i class="fa-solid fa-location-dot"></i> Nueva Ecija <br>
-                    <i class="fa-solid fa-envelope"></i> ShoeLuxe@gmail.com <br>
-                    <i class="fa-solid fa-house"></i> Pagasa, Talavera
-                </div>
-            </div>
-
-        </footer>
+        <div class="cont-container">
+            <h4>Contact Us</h4> <br>
+            <i class="fa-solid fa-phone"></i> 0926 - 624 - 7374 <br>
+            <i class="fa-solid fa-location-dot"></i> Nueva Ecija <br>
+            <i class="fa-solid fa-envelope"></i> ShoeLuxe@gmail.com <br>
+            <i class="fa-solid fa-house"></i> Pagasa, Talavera
+        </div>
+    </footer>
 </body>
 
     <script src="script.js"></script>
