@@ -33,6 +33,16 @@
         #file {
             padding: 0;
         }
+        button {
+            padding: 10px;
+            margin-top: 15px;
+            width: 20%;
+            border: none;
+            background-color: rgb(3, 200, 3);
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -41,13 +51,15 @@
         <h2>Edit Profile</h2>
 
         <label for="fullname">Full Name</label><br>
-        <input type="text">
+        <input type="text" disabled>
 
         <label for="">Username</label><br>
-        <input type="email">
+        <input type="email" disabled>
 
         <label for="profile">Profile Picture</label><br>
         <input id="file" type="file">
+
+        <button id="button">Edit</button>
     </form>
     
 </body>
