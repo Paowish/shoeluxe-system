@@ -3,64 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-
+    <title>Profile Form</title>
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
         }
+
         form {
-            box-shadow: 0 0 3px 4px rgba(0, 0, 0,0.1);
-            width: 400px;
-            height: 390px;
-            margin: auto;
-            padding: 10px;
-            margin-top: 150px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
         label {
-            position: relative;
-            top: 40px;
-            letter-spacing: 2px;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
         }
-        input {
-            padding: 10px;
-            width: 100%;
-            margin-top: 40px;
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"] {
+            width: 94%;
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        #file {
-            padding: 0;
-        }
-        button {
-            padding: 10px;
-            margin-top: 15px;
-            width: 20%;
+
+        #button {
+            background-color: #007BFF;
+            color: white;
             border: none;
-            background-color: rgb(3, 200, 3);
-            color: #fff;
+            padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        #home {
+            background-color: #727272;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-
     <form action="">
-        <h2>Edit Profile</h2>
+        <img id="profileImage" src="https://via.placeholder.com/100" alt="Profile Picture">
+        <h2>Profile</h2>
 
-        <label for="fullname">Full Name</label><br>
-        <input type="text" disabled>
+        <label for="username">Username</label>
+        <input id="email" type="email" value="" disabled>
 
-        <label for="">Username</label><br>
-        <input type="email" disabled>
+        <label for="fullname">First Name</label>
+        <input id="firstname" type="text" value="" required>
 
-        <label for="profile">Profile Picture</label><br>
-        <input id="file" type="file">
+        <label for="fullname">Last Name</label>
+        <input id="lastname" type="text" value="" required>
 
-        <button id="button">Edit</button>
+        <input id="file" type="file" accept="image/*" hidden>
+        <button id="home" onclick="backToHome()">Back to Home</button>
+        <button id="button" onclick="saveProfile()">Save Profile</button>
+
     </form>
-    
 </body>
+<script>
+    const profileImage = document.getElementById('profileImage');
+    const fileInput = document.getElementById('file');
+
+    // Trigger file input click when the image is clicked
+    profileImage.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    // Update the image preview after selecting a file
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                profileImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    let userEmail = localStorage.getItem("currentUser");
+    let userAccounts = JSON.parse(localStorage.getItem("userAccounts"));
+
+    let loggedinUser = userAccounts.filter( (user) => {
+        return user.email == userEmail
+    })
+
+    document.getElementById("email").value = loggedinUser[0].email;
+    document.getElementById("firstname").value = loggedinUser[0].firstName;
+    document.getElementById("lastname").value = loggedinUser[0].lastName;
+    document.getElementById("profileImage").src = loggedinUser[0].imgSrc;
+
+    function saveProfile() {
+        alert("Update Successfully")
+        let index = userAccounts.findIndex( user => user.email == userEmail);
+        userAccounts[index].firstName = document.getElementById("firstname").value;
+        userAccounts[index].lastName = document.getElementById("lastname").value;
+        userAccounts[index].lastName = document.getElementById("lastname").value;
+        userAccounts[index].imgSrc = document.getElementById("profileImage").src
+        localStorage.setItem("userAccounts", JSON.stringify(userAccounts));
+    }
+
+    function backToHome() {
+        event.preventDefault();
+        window.location.href = "http://127.0.0.1:5500/Shoes/index.html";
+        console.log("Pasok")
+    }
+
+</script>
 </html>

@@ -263,6 +263,7 @@ let userAccounts = [
         email: "admin@gmail.com",
         password: "admin123456",
         userType: "Admin",
+        imgSrc: ""
     },
     {
         id: 2,
@@ -271,6 +272,7 @@ let userAccounts = [
         email: "mjuliano@gmail.com",
         password: "user123456",
         userType: "User",
+        imgSrc: ""
     }
 ];
 
@@ -280,9 +282,19 @@ let selectedBrand = "";
 
 let addedToCart = [];
 
-hideProduct();
-hideForms();
 loadDataToLocalStorage();
+
+if(isUserLoggedIn()) {
+    hideForms();
+    showProduct();
+    showProfile();
+} 
+else {
+    hideProduct();
+    showForms();
+    hideProfile();
+}
+
 
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
@@ -340,15 +352,42 @@ closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
 });
 
+function isUserLoggedIn() {
+    return localStorage.getItem("currentUser");
+}
+
+function logout() {
+    alert("Logout Successfully");
+    localStorage.removeItem("currentUser");
+    hideProduct();
+    showForms();
+    hideProfile();
+}
+
+function hideProfile() {
+    let profile = document.getElementById("account-profile");
+    profile.style.display = "none";
+}
+
+function showProfile() {
+    let profile = document.getElementById("account-profile");
+    let userEmail = localStorage.getItem("currentUser");
+    
+    let loggedinUser = userAccounts.filter( user => user.email == userEmail);
+
+    document.getElementById("profileImage").src = loggedinUser[0].imgSrc;
+    document.getElementById("user-fullname").innerHTML = loggedinUser[0].firstName + " " + loggedinUser[0].lastName;
+
+    profile.style.display = "block";
+}
+
 function hideProduct() {
-    if(!localStorage.getItem("currentUser")) {
-        let productsNav = document.getElementById('products-nav');
-        let productsList = document.getElementById('products');
-        let iconCart = document.getElementById('openModalBtn');
-        productsNav.style.display = "none";
-        productsList.style.display = "none";
-        iconCart.style.visibility = "hidden";
-    }
+    let productsNav = document.getElementById('products-nav');
+    let productsList = document.getElementById('products');
+    let iconCart = document.getElementById('openModalBtn');
+    productsNav.style.display = "none";
+    productsList.style.display = "none";
+    iconCart.style.visibility = "hidden";
 }
 
 function showProduct() {
@@ -361,12 +400,21 @@ function showProduct() {
 }
 
 function hideForms() {
-    if(localStorage.getItem("currentUser")){
-        let loginForm = document.getElementById("loginForm");
-        let registerForm = document.getElementById("registerForm");
-        loginForm.style.display = "none";
-        registerForm.style.display = "none";
-    }
+    let loginForm = document.getElementById("loginForm");
+    let registerForm = document.getElementById("registerForm");
+    let loginLink = document.getElementById("login-link");
+    loginForm.style.display = "none";
+    registerForm.style.display = "none";
+    loginLink.style.display = "none";
+}
+
+function showForms() {
+    let loginForm = document.getElementById("loginForm");
+    let registerForm = document.getElementById("registerForm");
+    let loginLink = document.getElementById("login-link");
+    loginForm.style.display = "block";
+    registerForm.style.display = "block";
+    loginLink.style.display = "block";
 }
 
 function addProduct() {
@@ -401,6 +449,14 @@ function clearCart() {
 
 function loadDataToLocalStorage() {
     loadCart();
+
+    if(localStorage.getItem("userAccounts")){
+        let jsonData = JSON.parse(localStorage.getItem('userAccounts'));
+        userAccounts = jsonData;
+    }
+    else {
+        localStorage.setItem("userAccounts", JSON.stringify(userAccounts));
+    }
 
     if(localStorage.getItem('products')) {
         let jsonData = JSON.parse(localStorage.getItem('products'));
@@ -513,13 +569,17 @@ function login() {
         return user.email == username && user.password == password;
     });
 
-    console.log(userResult)
 
     if (userResult.length > 0) {
         alert("Login Successfully");
-        localStorage.setItem("currentUser", username);
-        showProduct();
-        hideForms();
+        if(userResult[0].userType == "Admin") {
+            window.location.href = "dashboard.html";
+        } else {
+            localStorage.setItem("currentUser", username);
+            showProduct();
+            hideForms();
+            showProfile();
+        }
     } else {
         alert("Both username and password are required.");
     }
