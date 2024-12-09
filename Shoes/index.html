@@ -19,6 +19,9 @@
           <table id="cart">
             <thead>
                 <th class="t-head">ITEM</th>
+                <th class="t-head">FOR</th>
+                <th class="t-head">COLOR</th>
+                <th class="t-head">SIZE</th>
                 <th class="t-head">PRICE</th>
                 <th class="t-head">QUANTITY</th>
                 <th class="t-head">TOTAL</th>
@@ -30,6 +33,86 @@
           <button id="checkout" onclick="checkoutButton()" class="checkout-btn">Checkout</button>
         </div>
     </div>
+
+    <div id="productModal" class="product-modal">
+        <div class="product-modal-content">
+            <div class="modal-header">
+                <h2>Product</h2>
+            </div>
+            <form id="productForm">
+                <div class="form-group">
+                    <img id="imgPreview-modal" src="" alt="Product Image" style="width: 100%; max-height: 200px; object-fit: contain; cursor: pointer;" onclick="document.getElementById('imgSrc').click();">
+                </div>
+                <div class="form-group">
+                    <label class="productLabel" for="brandName">Brand Name: </label>
+                    <label id="brandName-modal"></label>
+                </div>
+                <div class="form-group">
+                    <label class="productLabel" for="description">Description</label>
+                    <label id="description-modal"></label>
+                </div>
+                <div class="form-group">
+                    <label class="productLabel" for="description">Price:</label>
+                    <label id="price-modal"></label>
+                    <label hidden id="pricelabel-modal"></label>
+                </div>
+                <div class="form-group">
+                    <label class="productLabel" for="sizes">Sizes: </label>
+                    <div>
+                        <input type="radio" name="size" value="6" checked required>
+                        <label class="radio-value" for="men" >6</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="size" value="7" required>
+                        <label class="radio-value" for="women">7</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="size" value="8" required>
+                        <label class="radio-value" for="women">8</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="size" value="9" required>
+                        <label class="radio-value" for="women">9</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="size" value="10" required>
+                        <label class="radio-value" for="women">10</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="size" value="11" required>
+                        <label class="radio-value" for="women">11</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="productLabel" for="colors">Colors: </label>
+                    <div>
+                        <input type="radio" id="men" name="color" value="Black" checked required>
+                        <label class="radio-value" for="men">Black</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="women" name="color" value="Violet" required>
+                        <label class="radio-value" for="women">Violet</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="productLabel">Gender: </label>
+                    <div>
+                        <input type="radio" id="men" name="gender" value="Men" checked required>
+                        <label class="radio-value" for="men">Men</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="women" name="gender" value="Women" required>
+                        <label class="radio-value" for="women">Women</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeProductCartModal()">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
 
     <header>
     <nav>
@@ -70,14 +153,12 @@
                         </li>
                         <li>
                             <i class="fa-solid fa-pen-to-square"></i>
-                            <a href="myPurchases.html">Track Order</a>
+                            <a href="toPay.html">Track Order</a>
                         </li>
                         <li>
                             <i class="fa-solid fa-right-from-bracket"></i>
                             <a onclick="logout()" href="#">Logout</a>
                         </li>
-        
-        
                     </ul>
                 </div>
             </div>

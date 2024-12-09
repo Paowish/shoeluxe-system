@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Purchases</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #purchases {
+            color: rgb(2, 206, 2);
+        }
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 0 3px 4px rgba(0,0,0,0.2);
+            height: 60px;
+            padding-top: 15px;
+            padding-left: 5%;
+            padding-right: 10%;
+            position: fixed;
+        }
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 10px 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+        }
+        nav ul li a:hover {
+            color: rgb(2, 206, 2);
+        }
+        .active {
+            color: rgb(2, 206, 2);
+        }
+    </style>
+</head>
+<body>
+
+        <nav>
+            <h3 id="purchases">ShoeLuxxe</h3>
+            <ul>
+                <li><a href="toPay.html">To Pay</a></li>
+                <li><a href="toShip.html" class="active">To Ship</a></li>
+                <li><a href="toReceive.html">To Receive</a></li>
+                <li><a href="complete.html">Completed</a></li>
+            </ul>
+        </nav>
+    
+</body>
+</html>

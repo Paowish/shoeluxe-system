@@ -352,6 +352,7 @@ closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
 });
 
+
 function isUserLoggedIn() {
     return localStorage.getItem("currentUser");
 }
@@ -485,7 +486,8 @@ function displayProducts(products){
             '<h6 class="brandname">'+products[x].brandName+'</h6>' +
             '<span class="description">'+products[x].description+'</span>' +
             '<span class="price">'+products[x].priceLabel+'</span>' +
-            '<button onclick="addToCart(\''+ products[x].brandName +'\', \''+ products[x].imgSrc +'\', \''+ products[x].description +'\', \''+ products[x].price +'\', \''+ products[x].priceLabel +'\')" class="cart-btn">Add to Cart</button>' +
+            // '<button id="cartBtn" class="cart-btn" onclick="openAddtoCartModal()">Add to Cart</button>' +
+            '<button id="cart-btn" onclick="openAddtoCartModal(\''+ products[x].brandName +'\', \''+ products[x].imgSrc +'\', \''+ products[x].description +'\', \''+ products[x].price +'\', \''+ products[x].priceLabel +'\')" class="cart-btn">Add to Cart</button>' +
         '</div>';
     }
 }
@@ -503,19 +505,41 @@ function filterBrand(){
     displayProducts(filteredBrands);
 }
 
-function addToCart(brandName, imgSrc, description, price, priceLabel) {
+function addToCart() {
+    const productModal = document.getElementById('productModal');
+    productModal.style.display = 'none';
+    alert("Added Successfully!")
     let product = {
         quantity:1,
-        brandName: brandName,
-        imgSrc: imgSrc,
-        description: description,
-        price:  price,
-        priceLabel: priceLabel,
+        brandName: document.getElementById("brandName-modal").innerHTML,
+        imgSrc: document.getElementById("imgPreview-modal").src,
+        description: document.getElementById("description-modal").innerHTML,
+        price:  document.getElementById("price-modal").innerHTML,
+        priceLabel: document.getElementById("pricelabel-modal").innerHTML,
         status: "Added",
+        size: document.querySelector('input[name="size"]:checked').value,
+        color: document.querySelector('input[name="color"]:checked').value,
+        gender: document.querySelector('input[name="gender"]:checked').value,
         user: localStorage.getItem("currentUser")
     }
     addedToCart.push(product);
     updateCart();
+}
+
+function closeProductCartModal() {
+    const productModal = document.getElementById('productModal');
+    productModal.style.display = 'none';
+
+}
+
+function openAddtoCartModal(brandName, imgSrc, description, price, priceLabel){
+    const productModal = document.getElementById('productModal');
+    document.getElementById("brandName-modal").innerHTML = brandName;
+    document.getElementById("imgPreview-modal").src = imgSrc;
+    document.getElementById("description-modal").innerHTML = description;
+    document.getElementById("price-modal").innerHTML = price;
+    document.getElementById("pricelabel-modal").innerHTML = priceLabel;
+    productModal.style.display = 'block';
 }
 
 function displayCart(){
@@ -529,7 +553,10 @@ function displayCart(){
                     '<span class="brandName">'+addedToCart[x].brandName+'</span> <br>' + 
                     '<span class="description-cart">'+ addedToCart[x].description+'</span></td>' +
                 '</div>' +
-            '<td class="t-data"><h3 class="pricing">'+ addedToCart[x].priceLabel+'</h3></td>' +
+            '<td class="t-data"><h3 >'+ addedToCart[x].gender+'</h3></td>' +
+            '<td class="t-data"><h3 >'+ addedToCart[x].color+'</h3></td>' +
+            '<td class="t-data"><h3 >'+ addedToCart[x].size+'</h3></td>' +
+            '<td class="t-data"><h3 class="pricing">'+ addedToCart[x].price+'</h3></td>' +
             '<td class="t-data"><h3 class="quantity"><i onclick="decreaseQuantity('+addedToCart[x].quantity+', '+x+')" class="lessthan fa-solid fa-less-than"></i><span id="increaseNum'+x+'">'+addedToCart[x].quantity+'</span><i onclick="increaseQuantity('+addedToCart[x].quantity+', '+x+')" class=" greaterthan fa-solid fa-greater-than"></i></h3></td>' +
             '<td class="t-data"><h3 class="total">'+ addedToCart[x].price*addedToCart[x].quantity+'</h3></td>' +
         '</tr>';
