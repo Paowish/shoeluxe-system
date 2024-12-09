@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .edit-btn {
+            color: white;
+            background-color: #007bff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            color: white;
+            background-color: #dc3545;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+        .delete-btn:hover {
+            background-color: #a71d2a;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Products</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>BRAND</th>
+                <th>DESCRIPTION</th>
+                <th>PRICE</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody id="productsTable">
+            
+            <!-- Additional rows can be added here -->
+        </tbody>
+    </table>
+</body>
+<script>
+    let products = JSON.parse(localStorage.getItem("products"));
+    let productsTable = document.getElementById("productsTable");
+    console.log(productsTable)
+    for(let x=0; x<products.length; x++) {
+        productsTable.innerHTML += `<tr>
+                <td><img src="${products[x].imgSrc }" alt="Sample Product"></td>
+                <td>${ products[x].brandName }</td>
+                <td>${ products[x].description }</td>
+                <td>${ products[x].price }</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </td>
+            </tr>`;
+    }
+    console.log("Pasok")
+</script>
+
+</html>

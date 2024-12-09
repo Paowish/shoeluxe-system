@@ -20,3 +20,11 @@ themeToggler.addEventListener('click',()=>{
      themeToggler.querySelector('span:nth-child(1').classList.toggle('active')
      themeToggler.querySelector('span:nth-child(2').classList.toggle('active')
 })
+
+const modal = document.getElementById('myModal');
+const openModalBtn = document.getElementById('openModalBtn');
+
+openModalBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+  });
+// const closeBtn = document.querySelector('.close-btn');

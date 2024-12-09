@@ -576,12 +576,13 @@ function login() {
             window.location.href = "dashboard.html";
         } else {
             localStorage.setItem("currentUser", username);
+            window.location.href = "index.html";
             showProduct();
             hideForms();
             showProfile();
         }
     } else {
-        alert("Both username and password are required.");
+        alert("Incorrect username or password");
     }
 }
 
