@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .edit-btn {
+            color: white;
+            background-color: #007bff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            color: white;
+            background-color: #dc3545;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+        .delete-btn:hover {
+            background-color: #a71d2a;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        /* Modal content */
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .modal-header {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .modal-footer {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Orders</h1>
+    <a href="dashboard.html">Back to Dashboard</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>IMAGE</th>
+                <th>BRAND</th>
+                <th>DESCRIPTION</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+                <th>TOTAL PRICE</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody id="ordersTable">
+            <tr>
+                <td><img src="" alt="Sample Product"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="edit-btn" onclick="approveOrder()">Approve</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    let orders = JSON.parse(localStorage.getItem("orders"))
+    loadOrders();
+    function loadOrders() {
+        orders = JSON.parse(localStorage.getItem("orders"))
+        let ordersTable = document.getElementById("ordersTable");
+        ordersTable.innerHTML = "";
+        for (let x = 0; x < orders.length; x++) {
+            let html = `<tr>
+                <td><img src="${ orders[x].imgSrc }" alt="Sample Product"></td>
+                <td>${ orders[x].brandName }</td>
+                <td>${ orders[x].description }</td>
+                <td>${ orders[x].price }</td>
+                <td>${ orders[x].quantity }</td>
+                <td>${ orders[x].quantity * orders[x].price }</td>
+                <td>
+                    <div class="action-buttons">`;
+            if(orders[x].status == "Approved") {
+                html += `<span>Approved</span>`;
+            }
+            else {
+                html += `<button class="edit-btn" onclick="approveOrder(${x})">Approve</button>`
+            }
+
+            ordersTable.innerHTML += html
+                        
+        }
+    }
+    function approveOrder(index) {
+        let orders = JSON.parse(localStorage.getItem("orders"));
+        let isOrderApproved = confirm("Are you sure you want to approve the order ?");
+        
+        if(isOrderApproved) {
+            orders[index].status = "Approved";
+            localStorage.setItem("orders", JSON.stringify(orders));
+            loadOrders();
+        }
+    }
+</script>
+
+</html>

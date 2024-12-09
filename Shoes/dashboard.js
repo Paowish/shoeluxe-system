@@ -6,6 +6,9 @@ const closeBtn = document.querySelector('#close_btn');
 
 const themeToggler = document.querySelector('.theme-toggler');
 
+if(!isUserLoggedIn()){
+  window.location.href = "index.html"
+}
 
 
 menuBtn.addEventListener('click',()=>{
@@ -27,4 +30,16 @@ const openModalBtn = document.getElementById('openModalBtn');
 openModalBtn.addEventListener('click', () => {
     modal.style.display = 'block';
   });
+
+function isUserLoggedIn() {
+  return localStorage.getItem("currentUser");
+}
+
+function logout() {
+  let isUserLoggedOut = Confirm("Are you sure you want to logout ?");
+  if(isUserLoggedOut) {
+    localStorage.removeItem("currentUser");
+    window.location.href="index.html"
+  }
+}
 // const closeBtn = document.querySelector('.close-btn');

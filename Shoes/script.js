@@ -450,6 +450,10 @@ function clearCart() {
 function loadDataToLocalStorage() {
     loadCart();
 
+    if(!localStorage.getItem("orders")){
+        localStorage.setItem("orders", JSON.stringify([]));
+    }
+
     if(localStorage.getItem("userAccounts")){
         let jsonData = JSON.parse(localStorage.getItem('userAccounts'));
         userAccounts = jsonData;
@@ -506,7 +510,9 @@ function addToCart(brandName, imgSrc, description, price, priceLabel) {
         imgSrc: imgSrc,
         description: description,
         price:  price,
-        priceLabel: priceLabel
+        priceLabel: priceLabel,
+        status: "Added",
+        user: localStorage.getItem("currentUser")
     }
     addedToCart.push(product);
     updateCart();
@@ -552,9 +558,18 @@ function increaseQuantity(quantity, index){
 
 function checkoutButton(){
     let checkout = document.getElementById('checkout')
+    let orders = JSON.parse(localStorage.getItem("orders"));
+
+    for(let x=0; x<addedToCart.length; x++) {
+        addedToCart[x].status = "Pending";
+    }
+    orders = orders.concat(addedToCart);
+
+    localStorage.setItem("orders", JSON.stringify(orders));
+
     if (checkout){
-        alert("Thank you for checking out!");
-        clearCart();
+        alert("Thank you for checking out! Please wait for approval");
+        // clearCart();
         closeBtn.click();
     }
 }
@@ -573,6 +588,7 @@ function login() {
     if (userResult.length > 0) {
         alert("Login Successfully");
         if(userResult[0].userType == "Admin") {
+            localStorage.setItem("currentUser", username);
             window.location.href = "dashboard.html";
         } else {
             localStorage.setItem("currentUser", username);
