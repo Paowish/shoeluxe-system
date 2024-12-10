@@ -36,7 +36,7 @@ function isUserLoggedIn() {
 }
 
 function logout() {
-  let isUserLoggedOut = Confirm("Are you sure you want to logout ?");
+  let isUserLoggedOut = confirm("Are you sure you want to logout ?");
   if(isUserLoggedOut) {
     localStorage.removeItem("currentUser");
     window.location.href="index.html"

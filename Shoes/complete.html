@@ -43,6 +43,90 @@
             color: rgb(2, 206, 2);
         }
         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 60px;
+            position: absolute;
+            
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .edit-btn {
+            color: white;
+            background-color: #007bff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            color: white;
+            background-color: #dc3545;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+        .delete-btn:hover {
+            background-color: #a71d2a;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        /* Modal content */
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .modal-header {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .modal-footer {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -50,11 +134,76 @@
         <nav>
             <h3 id="purchases">ShoeLuxxe</h3>
             <ul>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="toPay.html">To Pay</a></li>
                 <li><a href="toShip.html">To Ship</a></li>
-                <li><a href="toReceive.html">To Receive</a></li>
                 <li><a href="complete.html" class="active">Completed</a></li>
             </ul>
         </nav>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>IMAGE</th>
+                    <th>BRAND</th>
+                    <th>DESCRIPTION</th>
+                    <th>FOR</th>
+                    <th>COLOR</th>
+                    <th>SIZE</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th>TOTAL PRICE</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody id="ordersTable">
+                <tr>
+                    <td><img src="" alt="Sample Product"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="action-buttons">
+                            <p>Pending</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </body>
+
+<script>
+    let orders = JSON.parse(localStorage.getItem("orders"))
+    loadOrders();
+    function loadOrders() {
+        orders = JSON.parse(localStorage.getItem("orders"))
+        orders = orders.filter(order => {
+            return order.status == "Approved"
+        })
+        let ordersTable = document.getElementById("ordersTable");
+        ordersTable.innerHTML = "";
+        for (let x = 0; x < orders.length; x++) {
+            let html = `<tr>
+                <td><img src="${ orders[x].imgSrc }" alt="Sample Product"></td>
+                <td>${ orders[x].brandName }</td>
+                <td>${ orders[x].description }</td>
+                <td>${ orders[x].gender }</td>
+                <td>${ orders[x].color }</td>
+                <td>${ orders[x].size }</td>
+                <td>${ orders[x].price }</td>
+                <td>${ orders[x].quantity }</td>
+                <td>${ orders[x].quantity * orders[x].price }</td>
+                <td>Order Completed</td>
+            </tr>`
+
+            ordersTable.innerHTML += html
+                        
+        }
+    }
+</script>
 </html>

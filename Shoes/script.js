@@ -267,9 +267,9 @@ let userAccounts = [
     },
     {
         id: 2,
-        firstName: "Michael",
-        lastName: "Juliano",
-        email: "mjuliano@gmail.com",
+        firstName: "user",
+        lastName: "user",
+        email: "user@gmail.com",
         password: "user123456",
         userType: "User",
         imgSrc: ""
@@ -630,15 +630,14 @@ function login() {
 }
 
 function register(){
-    const form = document.getElementById('myForm');
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+      const username = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
 
     if (username && password){
         alert("You're now registered");
     }
     else {
-        alert("Required input fields");
+        alert("You're now registered");
     }
 }
 
